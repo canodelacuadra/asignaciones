@@ -11,6 +11,7 @@ class UserController extends Controller
     {
         $em = $this -> getDoctrine() -> getManager();
         $users = $em -> getRepository('UserBundle:User')->findAll();
+        /*
         $res = '<h1>Lista de usuarios</h1>';
         $res .= '<ul>';
         foreach($users as $user)
@@ -19,6 +20,8 @@ class UserController extends Controller
         }
         $res .= '</ul>';
         return new Response($res);
+        */
+        return $this -> render('UserBundle:User:index.html.twig', array('users'=>$users));
     }
     public function viewAction($id)
     {
